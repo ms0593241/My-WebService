@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+.table_out {
+	width: 980px;
+	margin: 0 auto; /*置中*/
+}
+
+.table1 {
+	width: 400px;
+	background: #00F;
+	border: 2px solid #ddd;
+	border-collapse: collapse;
+}
+
+.table1 tr th { /*設定表格中的標題欄位樣式*/
+	background: #FDE9D9;
+	border: 1px solid #ccc;
+	border-collapse: collapse;
+}
+
+.table1 tr td { /*設定表格中的內容欄位樣式*/
+	background: #FFFFE0;
+	border: 1px solid #ccc;
+	border-collapse: collapse;
+}
+</style>
+</head>
+<body>
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="sha1.js"></script>
+	<script type="text/javascript" src="getData.js"></script>
+	<p>本例调用的函数会抓取公共運輸旅運資料服務API，然后返回结果：</p>
+
+	<p id="demo"></p>
+	<p id="dataID"></p>
+
+	<script src="/WebService/dwr/engine.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script type='text/javascript' src='/WebService/dwr/interface/API.js'></script>
+	<script type='text/javascript' src='/WebService/dwr/util.js'></script>
+
+
+	<div class="table_out">
+		<table class="table1">
+			<thead>
+				<tr>
+					<th width=14%>Key</th>
+					<th width=14%>Value</th>
+				</tr>
+			</thead>
+			<tbody id="tableID">
+
+			</tbody>
+		</table>
+	</div>
+
+	<script type="text/javascript">
+		//var jsonStr = "[{'aaa','bbb'}]";
+		var jsonStr = doGetData();
+		var jsonObj = JSON.parse(jsonStr);
+		var howMuchObjAtOnePage = 7;
+		var split = jsonObj.length / howMuchObjAtOnePage;
+		var upSplit = Math.ceil(split);
+		var reflashTime = 5000;
+		var count = 0;
+		//var reflashTime2 = 0;
+		var objStart = 0;
+		var objEnd = objStart + howMuchObjAtOnePage - 1;
+		var isNeedReflashData = false;
+
+		var forTable = document.querySelector("#tableID");
+		var jsonlength = jsonObj.length;
+		var minus = jsonlength - howMuchObjAtOnePage;
+
+		function doDemo() {
+			//forTable.innerHTML = "";
+			if (isNeedReflashData == true) {
+				jsonStr = doGetData();
+				jsonObj = JSON.parse(jsonStr);
+				isNeedReflashData = false;
+				objStart = 0;
+				objEnd = objStart + howMuchObjAtOnePage - 1;
+			}
+			if ((objEnd + howMuchObjAtOnePage - 1) < jsonlength
+					&& count!=0) {
+				objStart = objEnd + 1; //0 2+3=5
+				objEnd = objStart + howMuchObjAtOnePage - 1; //2 5+3-1=7
+			} else if ((objEnd + howMuchObjAtOnePage - 1) >= jsonlength && count!=0) {
+				if ((objEnd + howMuchObjAtOnePage) < jsonlength) {
+					objStart = objEnd + 1; //0 2+3=5
+				} else {
+					objStart = jsonlength - 1;
+				}
+				objEnd = jsonlength - 1; //2 5+3-1=7
+				isNeedReflashData = true;
+				
+			}
+			forTable.innerHTML = "";
+			var key = objStart;
+			for (var key; key <= objEnd; key++) {
+				count++;
+				//forTable.innerHTML = "";
+				console.log("1.objStart: " + objStart);
+				console.log("1.objEnd: " + objEnd);
+				console.log("1.key: " + key);
+				var value = jsonObj[key];
+				forTable.innerHTML += "<tr>" + "<td>" + count
+						+ "&nbsp--------分隔線----------" + "</td>" + "<td>"
+						+ "&nbsp---------分隔線-----------" + "</td>" + "</tr>";
+				for ( var key2 in value) {
+					var value2 = jsonObj[key][key2];
+					//console.log("key2: " + key2 + " value2: " + value2);
+					//console.log("value2 typeof: " + typeof (value2));
+					if (typeof (value2) == "object") {
+						for ( var key3 in value2) {
+							var value3 = jsonObj[key][key2][key3];
+							forTable.innerHTML += "<tr>" + "<td>" + key2
+									+ "</td>" + "<td></td>" + "</tr>";
+							forTable.innerHTML += "<tr>" + "<td>" + " ---> "
+									+ key3 + "</td>" + "<td>" + value3
+									+ "</td>" + "</tr>";
+							//console.log("key3: " + key3 + " value3: " + value3);
+						}
+					} else {
+						forTable.innerHTML += "<tr>" + "<td>" + key2 + "</td>"
+								+ "<td>" + value2 + "</td>" + "</tr>";
+					}
+				}
+
+				if (key == (jsonlength-1)) {
+					//forTable.innerHTML = "";
+					count = 0;
+					objStart = 0;
+					objEnd = objStart + howMuchObjAtOnePage - 1;
+				}
+			}
+			setTimeout(doDemo, reflashTime);
+		}
+		doDemo();
+		//setInterval(function() {
+		//	  $("#tableID").load(location.href+" #tableID>*","");
+		//}, 3000); 
+		//for (var i = 0; i < jsonSum; i++) {
+		//	forTable.innerHTML += "<tr>" + "<td>" + jsonStr[i].name + "</td>"
+		//			+ "<td>" + jsonStr[i].age + "</td>" + "</tr>";
+		//}
+	</script>
+</body>
+</html>

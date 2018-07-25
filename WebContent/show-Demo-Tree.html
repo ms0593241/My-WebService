@@ -1,0 +1,270 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="css/emxUIStructureBrowser.css">
+<link rel="stylesheet" href="css/emxUIDefault.css">
+<link rel="stylesheet" href="css/UIKIT.css">
+</head>
+<body>
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+	<script src="/WebService/dwr/engine.js" type="text/javascript" charset="utf-8"></script>
+	<script type='text/javascript' src='/WebService/dwr/interface/API.js'></script>
+	<script type='text/javascript' src='/WebService/dwr/util.js'></script>
+	<script type="text/javascript" src="sha1.js"></script>
+	<script type="text/javascript" src="getData.js"></script>
+	<form name="emxTableForm">
+		<div id="mx_divBody" style="display: block; top: 37px; bottom: 31px;" class="">
+			<div id="spinner_div" class="spinner-mask">
+				<div class="spinner spinning fade in">
+					<span class="spinner-bar"></span>
+					<span class="spinner-bar spinner-bar1"></span>
+					<span class="spinner-bar spinner-bar2"></span>
+					<span class="spinner-bar spinner-bar3"></span>
+					<span class="spinner-bar spinner-bar4"></span>
+				</div>
+			</div>
+			<div id="mx_divTree" style="width: 219px;">
+				<div id="mx_divTreeHead" style="width: 235px;">
+					<table xmlns="http://www.w3.org/1999/xhtml" id="treeHeadTable" colorize="" style="position: relative; left: 0px;" width="238">
+						<tbody>
+							<tr class="mx_hidden-row">
+								<td position="-1" width="1"></td>
+								<td class="mx_hidden-row" width="1"></td>
+								<td id="ROW_1" class="mx_hidden-row" width="234"></td>
+								<td class="mx_hidden-row" width="2"></td>
+							</tr>
+							<tr style="height: 40px;">
+								<th position="-1" width="1"></th>
+								<th width="1"></th>
+								<th id="Name">
+									<table>
+										<tbody>
+											<tr>
+
+												<td id="Name" class="mx_sort-column " width="">
+													<a href="javascript:sortTable(1)">站名</a>
+												</td>
+												<td id="Name_sort" class="sort-ascend status" width=""></td>
+												<td id="Name_filter" width=""></td>
+											</tr>
+										</tbody>
+									</table>
+								</th>
+								<th class="mx_sizer"></th>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div id="mx_divTreeBody" width="237" style="width: 235px; top: 46px;">
+					<table xmlns="http://www.w3.org/1999/xhtml" id="treeBodyTable" data-drag="Name" width="235">
+						<tbody id="table_keyTitle">
+							
+						</tbody>
+					</table>
+				</div>
+			</div>
+			
+			<div id="mx_divGrabber" onmousedown="javascript:setDragging(this)" onmouseup="javascript:stopResizeDivs(this)" style="left: 219px;">
+				<div id="mx_divGrabberHead"></div>
+				<div id="mx_divGrabberBody" style="top: 6px;"></div>
+			</div>
+			<div id="mx_divTable" style="left: 222px;">
+				<div id="mx_divTableHead">
+					<table xmlns="http://www.w3.org/1999/xhtml" id="headTable" style="position: relative; left: 0px;" width="1094" border="0">
+						<tbody>
+							<tr class="mx_hidden-row">
+								<td id="ROW_2" width="300"></td>
+								<td width="2"></td>
+								<td id="ROW_3" width="300"></td>
+								<td width="2"></td>
+								<td id="ROW_4" width="300"></td>
+								<td width="2"></td>
+								<td id="ROW_5" width="300"></td>
+								<td width="2"></td>
+							</tr>
+							<tr>
+								<th id="StationID" class="mx_editable ">
+									<table>
+										<tbody>
+											<tr>
+												<td id="StationID" class="mx_sort-column " width="">
+													<a href="javascript:sortTable(2)">車站ID</a>
+												</td>
+												<td id="description_sort" class="" width=""></td>
+											</tr>
+										</tbody>
+									</table>
+								</th>
+								<th class="mx_sizer"></th>
+								<th id="StationPosition">
+									<table>
+										<tbody>
+											<tr>
+												<td id="StationPosition" class="mx_sort-column " width="">
+													<a href="javascript:sortTable(3)">車站位置</a>
+												</td>
+												<td id="state_sort" class="" width=""></td>
+												<td id="state_filter" width=""></td>
+											</tr>
+										</tbody>
+									</table>
+								</th>
+								<th class="mx_sizer"></th>
+								<th id="StationAddress">
+									<table>
+										<tbody>
+											<tr>
+												<td id="StationAddress" class="mx_sort-column " width="">
+													<a href="javascript:sortTable(4)">車站地址</a>
+												</td>
+												<td id="Owner_sort" class="" width=""></td>
+												<td id="Owner_filter" width=""></td>
+											</tr>
+										</tbody>
+									</table>
+								</th>
+								<th class="mx_sizer"></th>
+								<th id="StationPhone">
+									<table>
+										<tbody>
+											<tr>
+												<td id="Owner" class="mx_sort-column " width="">
+													<a href="javascript:sortTable(5)">車站電話</a>
+												</td>
+												<td id="Owner_sort" class="" width=""></td>
+												<td id="Owner_filter" width=""></td>
+											</tr>
+										</tbody>
+									</table>
+								</th>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div id="mx_divTableBody" style="top: 46px;">
+					<table xmlns="http://www.w3.org/1999/xhtml" id="bodyTable" width="1092">
+						<tbody>
+							<tr class="mx_hidden-row">
+								<td id="ROW_2" width="302"></td>
+								<td id="ROW_3" width="302"></td>
+								<td id="ROW_4" width="302"></td>
+								<td id="ROW_5" width="302"></td>
+							</tr>
+						</tbody>
+						<tbody id="table_dataTable">
+							
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</form>
+	<script type="text/javascript">
+		var jsonStr = doGetData();
+		var jsonObj = JSON.parse(jsonStr);
+		var howMuchObjAtOnePage = 7;
+		var split = jsonObj.length / howMuchObjAtOnePage;
+		var upSplit = Math.ceil(split);
+		var reflashTime = 5000;
+		var countObj = 0;
+		var objStart = 0;
+		var objEnd = objStart + howMuchObjAtOnePage - 1;
+		var isNeedReflashData = false;
+		var keyTitle = document.querySelector("#table_keyTitle");
+		var dataTable = document.querySelector("#table_dataTable");
+		var jsonlength = jsonObj.length;
+		var minus = jsonlength - howMuchObjAtOnePage;
+		var testStr = "";
+		function isChinese(str){
+			var isChi = true;
+			for(var j = 0; j < str.length; j++) {
+				if(str.charCodeAt(j) < 0x4E00 || str.charCodeAt(j) > 0x9FA5) {
+					isChi = false;
+				}
+			}
+			return isChi;
+		}
+		function doDemo() {
+			if (isNeedReflashData == true) {
+				jsonStr = doGetData();
+				jsonObj = JSON.parse(jsonStr);
+				isNeedReflashData = false;
+				objStart = 0;
+				objEnd = objStart + howMuchObjAtOnePage - 1;
+			}
+			if ((objEnd + howMuchObjAtOnePage - 1) < jsonlength && countObj!=0) {
+				objStart = objEnd + 1; //0 2+3=5
+				objEnd = objStart + howMuchObjAtOnePage - 1; //2 5+3-1=7
+			} else if ((objEnd + howMuchObjAtOnePage - 1) >= jsonlength && countObj!=0) {
+				objStart = objEnd + 1; //0 2+3=5
+				objEnd = jsonlength - 1; //2 5+3-1=7
+				isNeedReflashData = true;
+			}
+			keyTitle.innerHTML = "";
+			dataTable.innerHTML = "";
+			testStr = "";
+			var key = objStart;
+			for (var key; key <= objEnd; key++) {
+				countObj++;
+				var arrayObj = jsonObj[key];
+				if((countObj%2 ==0)){
+					testStr += "<tr class='root-node even' height='35'>";
+				}else{
+					testStr += "<tr class='root-node mx_altRow' height='35'>";
+				}
+				for ( var key2 in arrayObj) {
+					var value2 = jsonObj[key][key2];
+					if (typeof (value2) == "object") {
+						var value3 = "";
+						var countMulti = 0;
+						for ( var key3 in value2) {
+							if(key2.match("StationName")){
+								value3 = jsonObj[key][key2][key3];
+								var isChi = isChinese(value3);
+								if(isChi){
+									if((countObj%2 ==0)){
+										keyTitle.innerHTML += "<tr class='root-node even' height='35'><td class='' position='-1'></td><td position='1'><div><table><tbody><tr><td><a href='javascript:;'></a>&nbsp;</td><td title='" + key2 + "' position='1' valign='middle'>"
+										+value3+"</td></tr></tbody></table></div></td></tr>";
+									}else{
+										keyTitle.innerHTML += "<tr class='root-node mx_altRow' height='35'><td class='' position='-1'></td><td position='1'><div><table><tbody><tr><td><a href='javascript:;'></a>&nbsp;</td><td title='" + key2 + "' position='1' valign='middle'>"
+										+value3+"</td></tr></tbody></table></div></td></tr>";
+									}
+								}
+							}else{	
+								if(countMulti==0){
+									value3 = jsonObj[key][key2][key3];
+									countMulti++;
+									continue;
+								}else if(countMulti<(value2.length-1)){
+									value3 = value3 + "," + jsonObj[key][key2][key3];
+									countMulti++;
+									continue;
+								}else{
+									value3 = value3 + "," + jsonObj[key][key2][key3];
+								}
+								testStr+= "<td title='" + key2 + "'>" + value3 + "</td>";
+							}
+						}
+					} else {
+						testStr+= "<td title='" + key2 + "'>"+ value2 + "</td>";			
+					}
+					
+				}
+				testStr += "</tr>";
+				dataTable.innerHTML = testStr;
+				if (key == (jsonlength-1)) {
+					countObj = 0;
+					objStart = 0;
+					objEnd = objStart + howMuchObjAtOnePage - 1;
+				}
+				
+			}
+			setTimeout(doDemo, reflashTime);
+		}
+
+		doDemo();
+	</script>
+</body>
+</html>

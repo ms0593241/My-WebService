@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<users>
+	<user>
+		<userid>1</userid>
+		<username>Billy</username>
+		<email>a89235560@gmail.com</email>
+	</user>
+	<userid>2</userid>
+	
+	
+	<data>
+		<Air-url>http://ptx.transportdata.tw/MOTC/v2/Air/METAR/Airport?$top=30&amp;$format=JSON</Air-url>
+		<TRA-url>http://ptx.transportdata.tw/MOTC/v2/Rail/TRA/Station?$top=10&amp;$format=JSON</TRA-url>
+		<keyid>AirportName.Zh_tw</keyid>
+		<keyid-org>AirportName.Zh_tw</keyid-org>
+		<keyWord>ObservationTime,MetarTime,WindDirection,WindSpeed,Temperature,WeatherDescription.Zh_tw</keyWord>
+		<keyWord-chi>觀測時間,航空例行天氣報告時間,風向,風速,溫度,天氣描述</keyWord-chi>
+	</data>
+	
+</users>
+
+
+

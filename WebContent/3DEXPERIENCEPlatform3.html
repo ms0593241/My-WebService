@@ -1,0 +1,957 @@
+<html class=" firefox firefox52 win32"><head><script type="text/javascript" language="JavaScript" src="../plugins/esapi4js/esapi-min.js"></script>
+<script type="text/javascript" language="JavaScript" src="../plugins/esapi4js/resources/i18n/ESAPI_Standard_en_US.properties.js"></script>
+<script type="text/javascript" language="JavaScript" src="../plugins/esapi4js/resources/Base.esapi.properties.js"></script>
+<script type="text/javascript" language="JavaScript">
+	org.owasp.esapi.ESAPI.initialize();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+                            <!-- //XSSOK -->
+                            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+ This include inc line is added to to get the security context switching data available. The data is
+ constructed with the html elements and governed by the div tag. Please do not remove this
+ -->
+
+
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+
+<script>
+function updateLangPref(selectedlang){
+	UWA.Data.proxies.passport = crossproxy;
+	UWA.Data.request(passportURL+"/my-profile/update/language/"+selectedlang, {									
+	   	method:"POST",
+	   	cache:-1,
+		proxy: "passport",
+		onComplete : function(data){
+			console.log("Successfully updated..........");
+		}
+	});
+}
+
+      //OPENEROK
+      window.opener = null;
+
+var topFrameTagger;
+var isTopFrameEnabled = true
+var targetOrigin='null';
+var defOptionsGlobal = {
+ 		  socketName : 'null',
+ 		  targetOrigin : targetOrigin
+ 	  };
+var topMostEnoviaWindow=true;
+var appNameForHomeTitle='';
+var brandName='';
+var applicationProductInfo='';
+var isPanelOpen = true;
+var curProd = '';
+var collabSpace = 'RC_Collaborative_Space';
+var isMobile = false;
+var isPCTouch = false;
+var CACHE_CATEGORIES_COUNT = 5;
+if(isMobile && CACHE_CATEGORIES_COUNT > 3){
+	CACHE_CATEGORIES_COUNT = 3;
+} else if(CACHE_CATEGORIES_COUNT > 5){
+	CACHE_CATEGORIES_COUNT = 5;
+} 
+//XSSOK
+var crossproxy = "/3dspace/common/emxCrossDomainProxy.jsp";
+//XSSOK
+var donwloadpf = "/3dspace/common/emxDownloadPlatform.jsp";
+
+//XSSOK
+var clntbaseImgPath = "/3dspace/webapps/i3DXCompass/assets/images/";
+//XSSOK
+var clntbaseHtmlPath = "/3dspace/webapps/i3DXCompass/";
+//XSSOK
+var clntbaseNlsPath = "/3dspace/webapps/i3DXCompass/assets/lang/";
+//XSSOK
+var clntbaseAppletPath = "/3dspace/webapps/i3DXCompass/assets/applet/";
+var isfromIFWE = false;
+
+
+
+
+// Start MSF
+var serverUrl = 'https://ds3dx.dstw.com:4446/3dspace';
+// End MSF
+//XSSOK
+var clntlang = "en,zh\x2DTW\x3Bq\x3D0.7,en\x2DGB\x3Bq\x3D0.3";
+if(clntlang)clntlang = clntlang.substr(0,2);
+//XSSOK
+var myAppsURL = "https://ds3dx.dstw.com:4446/3dspace";
+//XSSOK
+// Start MSF
+var proxyTicketURL = serverUrl + '/resources/bps/proxyticket';
+// End MSF
+
+
+//XSSOK
+var passportURL = 'https://ds3dx.dstw.com:4443/3dpassport';
+var searchURL = 'https://ds3dx.dstw.com:4445/federated';
+var curUserId = "rc_leader";
+var curSecCtx = "VPLMProjectLeader.Company\x20Name.RC_Collaborative_Space";
+var curTenant = "";
+var currentApp = "ENOBUPS_AP";
+var msfClientId = "b5719f36a7a44b96b82b138a2f024a62";
+
+
+//XSSOK
+var licenseWarning = "";
+
+</script>
+
+<script type="text/javascript" src="../common/scripts/jquery-latest.js"></script>
+<script src="scripts/emxUICore.js" type="text/javascript"></script>
+<script src="scripts/emxClientSideInfo.js" type="text/javascript"></script>
+
+
+                
+
+
+
+				   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ESAPI -->
+<script type="text/javascript" language="JavaScript" src="../plugins/esapi4js/esapi-min.js"></script>
+<script type="text/javascript" language="JavaScript" src="../plugins/esapi4js/resources/i18n/ESAPI_Standard_en_US.properties.js"></script>
+<script type="text/javascript" language="JavaScript" src="../plugins/esapi4js/resources/Base.esapi.properties.js"></script>
+<script type="text/javascript" language="JavaScript">
+	org.owasp.esapi.ESAPI.initialize();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- //XSSOK -->
+<script language="javascript" src="/3dspace/common/scripts/emxUICore.js"></script>
+<!-- //XSSOK -->
+<script language="javascript" src="/3dspace/common/scripts/emxUIModal.js"></script>
+<script language="Javascript">  
+
+</script>
+
+
+
+<script language="JavaScript">
+
+    var DisplayErrorMsg = "";
+
+</script>
+
+
+
+<script language="javascript" src="scripts/emxJSValidationUtil.js"></script>
+<script src="scripts/emxExtendedPageHeaderFreezePaneValidation.js"></script>
+
+<link rel="stylesheet" type="text/css" href="../common/styles/emxUIExtendedHeader.css">
+<link rel="stylesheet" type="text/css" href="../common/styles/emxUINavigator.css">
+<link rel="stylesheet" href="styles/emxUIFancyTree.css">
+<script>
+	//IR-459941-3DEXPERIENCER2017x - NLS
+	var require = {
+           config: {
+                  i18n: {
+                       locale: clntlang
+                  }
+           }
+        };
+</script>
+	
+	
+	<script src="../webapps/AmdLoader/AmdLoader.js"></script>
+    <script type="text/javascript">window.dsDefaultWebappsBaseUrl = "../webapps/";</script>
+	<script src="../webapps/WebappsUtils/WebappsUtils.js"></script>
+	<script>
+	require(['DS/WebappsUtils/WebappsUtils'], function (WebappsUtils){WebappsUtils._setWebappsBaseUrl('../webapps/');});
+	</script>
+	<script src="../webapps/c/UWA/js/UWA_W3C_Alone.js"></script> 
+	<script src="scripts/emxSnN.js"></script>
+    <link rel="stylesheet" type="text/css" href="../webapps/UIKIT/UIKIT.css">
+<!-- Coachmark Init -->
+	<script type="text/javascript" src="../webapps/Coachmark/Coachmark.js"></script>	
+	<script type="text/javascript" src="scripts/emxUICompass.js"></script>
+	
+		<!-- Compass Component Style -->
+		<link rel="stylesheet" type="text/css" href="../webapps/i3DXCompass/i3DXCompass.css">
+	
+		<!-- Compass Component -->
+		<script type="text/javascript" src="../webapps/i3DXCompass/i3DXCompass.js"></script>
+	
+		<!-- Coachmark Component Style -->
+		<link rel="stylesheet" type="text/css" href="../webapps/Coachmark/Coachmark.css">
+		
+			<link rel="stylesheet" type="text/css" href="../webapps/TopFrame/TopFrame.css">	
+		
+	
+	
+	
+
+
+<script>
+var enablePageHistory = "false";
+</script>
+
+
+
+<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+ <title>3DEXPERIENCE Platform</title>
+ 
+<script type="text/javascript" src="../common/scripts/emxUICore.js"></script>
+<script language="JavaScript" type="text/javascript">
+var uiconstantscache = typeof sessionStorage != "undefined" ? sessionStorage.getItem('uiConstantsCache'): null;
+if(uiconstantscache){
+	uiconstantscache= JSON.parse(uiconstantscache);
+	var emxUIConstants = uiconstantscache;
+}else{
+	document.write("<scri" + "pt language=\"JavaScript\" type=\"text/javascript\" src=\"../common/emxUIConstantsJavaScriptInclude.jsp\"></scr" + "ipt>");
+}
+</script>
+
+<script type="text/javascript" src="../common/scripts/emxUIConstants.js"></script>
+<script language="javascript">
+  addStyleSheet('emxUICalendar');
+  if(getTopWindow().isMobile){
+	addStyleSheet("emxUIMobile", "mobile/styles/");	
+  }
+</script><link rel="stylesheet" type="text/css" href="../common/styles/emxUICalendar.css">
+
+<script type="text/javascript" src="../common/scripts/emxUICoreMenu.js"></script>
+<script type="text/javascript" src="../common/scripts/jquery-latest.js"></script>
+<script type="text/javascript" src="../common/scripts/dsTouchEvents.js"></script>
+
+
+<script type="text/javascript" src="../common/scripts/MSFSocketInitialize.js"></script>
+
+        <script src="scripts/emxUIModal.js" type="text/javascript"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="DS/WAFData/WAFData" src="../webapps/./WAFData/WAFData.js"></script>
+        <script type="text/javascript" language="javascript">
+        function redirectTheParent()
+        {
+        	if(isIE && !(isMinIE10 || isIE11))
+            {
+                setTimeout(function(){
+                document.location.href="../emxLoginDisplay.jsp";
+                //XSSOK
+                var myWindow = showAndGetNonModalDialog("emxNavigator.jsp?appName=ENOPRPR_AP&collabSpace=RC_Collaborative_Space",1100,700,true);
+                //OPENEROK
+                myWindow.opener = null;
+                myWindow.getTopWindow().moveTo(-4,-4);
+                myWindow.getTopWindow().resizeTo(screen.availWidth+6,screen.availHeight+6);
+                }, 1500);
+            } else {
+                //XSSOK
+                var myWindow = showAndGetNonModalDialog("emxNavigator.jsp?appName=ENOPRPR_AP&collabSpace=RC_Collaborative_Space",1100,700,true);
+                    //OPENEROK
+                    myWindow.opener = null;
+                    document.location.href="../emxLoginDisplay.jsp";
+            }
+        }
+
+
+        addStyleSheet("emxUIMenu");
+        // Javascript Object/variable to hold all the Child windows reference.
+        if (!getTopWindow().childWindows) {
+            if(isIE && getTopWindow().getWindowOpener()){
+            	getTopWindow().childWindows = getTopWindow().getWindowOpener().getTopWindow().childWindows;
+            }else{
+            getTopWindow().childWindows = new Array;
+            }
+        }
+    </script><link rel="stylesheet" type="text/css" href="../common/styles/emxUIMenu.css">
+
+ <script src="scripts/emxUICoreTree.js" type="text/javascript"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="DS/i3DXCompassPlatformServices/i3DXCompassPlatformServices" src="../webapps/./i3DXCompassPlatformServices/i3DXCompassPlatformServices.js"></script>
+ <script src="scripts/emxUIUtility.js" type="text/javascript"></script>
+ <script src="scripts/emxUIPopups.js" type="text/javascript"></script>
+ <script src="scripts/emxUIToolbar.js" type="text/javascript"></script>
+ <script src="scripts/emxUINavigator.js" type="text/javascript"></script>
+ <script src="scripts/emxUIHistoryTree.js" type="text/javascript"></script>
+ <script src="scripts/emxUIStructureTree.js" type="text/javascript"></script>
+ <script src="scripts/emxUIDetailsTree.js" type="text/javascript"></script>
+ <script src="scripts/emxUITreeUtil.js" type="text/javascript"></script>
+ <script src="scripts/emxUISearch.js" type="text/javascript"></script>
+ <script src="scripts/emxUIMetrics.js" type="text/javascript"></script>
+ <script src="scripts/emxUISlideIn.js" type="text/javascript"></script>
+ <script src="scripts/emxUICalendar.js" type="text/javascript"></script>
+ <script src="scripts/emxUICategoryTab.js" type="text/javascript"></script>
+ 
+ <script type="text/javascript" src="scripts/jquery-ui.custom.js"></script>
+ <script type="text/javascript" src="../webapps/VENENOFrameworkPlugins/plugins/fancytree/latest/jquery.fancytree.js"></script>
+ <script type="text/javascript" src="../webapps/VENENOFrameworkPlugins/plugins/fancytree/latest/jquery.fancytree.childcounter.js"></script>
+ <script type="text/javascript" src="../webapps/VENENOFrameworkPlugins/plugins/fancytree/latest/jquery.fancytree.filter.js"></script>   
+ <script src="scripts/emxUIStructureFancyTree.js" type="text/javascript"></script>
+ <script src="scripts/bpsUWAUtils.js" type="text/javascript"></script>
+ <script src="scripts/emxNavigatorHelp.js" type="text/javascript"></script>
+ <link rel="stylesheet" type="text/css" href="../plugins/libs/jqueryui/1.10.3/css/jquery-ui.css">
+ <link rel="stylesheet" type="text/css" href="styles/emxUIImageManagerInPlace.css">
+ 
+  <script type="text/javascript" src="../webapps/TagNavigator/TagNavigator.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="DS/Logger/Logger" src="../webapps/./Logger/Logger.js"></script>
+  <script type="text/javascript" src="scripts/bpsTagNavConnector.js"></script>
+  <link rel="stylesheet" type="text/css" href="../webapps/TagNavigator/TagNavigator.css">
+ 
+ 
+<script type="text/javascript">
+
+  var objDetailsTree = new emxUIDetailsTree;
+  var objStructureTree = new emxUIStructureTree;
+
+  var objStructureFancyTree;
+  require(['emxUIStructureFancyTree',
+           'bpsUWAInterCom'
+          ],
+  	  function (emxUIStructureFancyTree, bpsUWAInterCom){
+	     objStructureFancyTree = emxUIStructureFancyTree;
+	     
+	     var defOptions = {
+	   		  socketName : 'null',
+	   		  eventName : 'uwaGlobalToolbarAddEvent',
+	   		  targetOrigin : targetOrigin
+	   	  };
+	   	  bpsUWAInterCom.registerHandler(showGTBModalDialog, defOptions);
+  	  }
+  );
+  function showGTBModalDialog(json, info) {
+	  emxUICore.link(json.url);
+	 }
+  if(objStructureFancyTree){
+	  objStructureFancyTree.destroy();
+  }
+  //objStructureFancyTree.init();
+  
+  function initStructureTree(){
+      objStructureTree = new emxUIStructureTree;
+      objDetailsTree = objStructureTree;
+      return objStructureTree ;
+  }
+
+ emxUINavigator.setLayout(emxUINavigator.LAYOUT_SHRUNK);
+ //XSSOK
+ var contentURL =  "null";
+ if(contentURL != null && contentURL != "null" && contentURL != ""){
+
+	 //XSSOK
+	 emxUINavigator.setContent("emxNavigatorContentLoad.jsp?fromIFWE=null&appName=ENOPRPR_AP");
+  }else{
+	 //XSSOK
+	 emxUINavigator.setContent("emxNavigatorContentLoad.jsp?appName=ENOPRPR_AP&collabSpace=RC_Collaborative_Space");
+  }
+
+
+
+ //emxUINavigator.toolbar.historyEnabled = true;
+</script>
+ <script type="text/javascript">
+ function launchHomePage(){
+	 
+	 var homeurl = 'emxNavigator.jsp?appName=' + currentApp + "&appName=ENOPRPR_AP&collabSpace=RC_Collaborative_Space";
+	 if(homeurl.contains('objectId')){
+	    var tempobj=homeurl.match("[&|?]objectId=");
+        var idStartIndex = homeurl.indexOf(tempobj);
+        var isLastIndex = homeurl.indexOf("&",idStartIndex+1);
+        if(isLastIndex == -1){
+        	isLastIndex = homeurl.length;
+        }
+		var objId= homeurl.slice(idStartIndex ,isLastIndex );
+		homeurl=homeurl.replace(objId,'');
+	}
+	 if(getTopWindow().isfromIFWE){
+		 homeurl += "&fromIFWE=true";
+	 }
+	 location.href = homeurl; 
+   
+	 if(isfromIFWE){
+	     	setUWAPref('DefaultCategory','');
+	     	setUWAPref('objectId','');
+	       setUWAPref('DefaultLocation','');
+	       setUWATitle('');
+	     }
+
+ }
+ 
+var isInPopup = "null";
+ </script>
+
+
+<script src="emxNavigatorToolbar.jsp?toolbar=AEFGlobalToolbar&amp;isPopup=null" type="text/javascript"></script>
+
+ <!-- <script src="scripts/emxUIHistoryController.js" type="text/javascript"></script>  -->
+
+
+
+
+
+
+<!-- //XSSOK -->
+<script language="javascript" src="/3dspace/common/scripts/emxUICore.js"></script>
+<!-- //XSSOK -->
+<script language="javascript" src="/3dspace/common/scripts/emxUIModal.js"></script>
+<script language="Javascript">  
+
+</script>
+
+
+
+<script language="JavaScript">
+
+    var DisplayErrorMsg = "";
+
+</script>
+
+
+
+<script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="DS/TopFrame/TopFrame" src="../webapps/./TopFrame/TopFrame.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="DS/TopBar/TopBar" src="../webapps/./TopBar/TopBar.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="DS/TopBarProxy/TopBarProxy" src="../webapps/./TopBarProxy/TopBarProxy.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="DS/Foundation/Foundation" src="../webapps/./Foundation/Foundation.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="DS/SNSearchUX/SNSearchUX" src="../webapps/./SNSearchUX/SNSearchUX.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="DS/UWPClientCode/UWPClientCode" src="../webapps/./UWPClientCode/UWPClientCode.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="DS/ENOFrameworkSearch/ENOFrameworkSearch" src="../webapps/./ENOFrameworkSearch/ENOFrameworkSearch.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="UWA/Class/Collection" src="../webapps/UWA2/js/Class/Collection.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="UWA/Class/Model" src="../webapps/UWA2/js/Class/Model.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="UWA/Class/View" src="../webapps/UWA2/js/Class/View.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="UWA/Controls/TabView" src="../webapps/UWA2/js/Controls/TabView.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="DS/TagNavigatorProxy/TagNavigatorProxy" src="../webapps/./TagNavigatorProxy/TagNavigatorProxy.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="DS/TopBar/assets/nls/TopBar_temp" src="../webapps/./TopBar/assets/nls/TopBar_temp.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="UWA/Class/Listener" src="../webapps/UWA2/js/Class/Listener.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="UWA/Controls/Carousel" src="../webapps/UWA2/js/Controls/Carousel.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="UWA/Controls/Scroller" src="../webapps/UWA2/js/Controls/Scroller.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="UWA/Controls/Overlay" src="../webapps/UWA2/js/Controls/Overlay.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="DS/W3DLegal/W3DLegal" src="../webapps/./W3DLegal/W3DLegal.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="DS/TagNavigator/TagNavigator_en" src="../webapps/./TagNavigator/TagNavigator_en.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="DS/UIKIT/UIKIT" src="../webapps/./UIKIT/UIKIT.js"></script><link type="text/css" rel="stylesheet" href="../webapps/./W3DLegal/W3DLegal.css"><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="DS/ENOFrameworkSearch/SearchUIContainer" src="../webapps/./ENOFrameworkSearch/SearchUIContainer.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="DS/ENOFrameworkSearch/Search" src="../webapps/./ENOFrameworkSearch/Search.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="DS/ENOFrameworkSearch/Tagger" src="../webapps/./ENOFrameworkSearch/Tagger.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="DS/ENOFrameworkSearch/TopFrameInit" src="../webapps/./ENOFrameworkSearch/TopFrameInit.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="DS/ENO6WPlugins/ENO6WPlugins" src="../webapps/./ENO6WPlugins/ENO6WPlugins.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="DS/i3DXCompassServices/i3DXCompassServices" src="../webapps/./i3DXCompassServices/i3DXCompassServices.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="DS/PlatformAPI/PlatformAPI" src="../webapps/./PlatformAPI/PlatformAPI.js"></script><link type="text/css" rel="stylesheet" href="../webapps/./TopBar/TopBar.css"><link type="text/css" rel="stylesheet" href="../webapps/./UWA2/assets/css/inline.css"><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="DS/Handlebars/Handlebars" src="../webapps/./Handlebars/Handlebars.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="DS/TopBar/TopBar_en" src="../webapps/./TopBar/TopBar_en.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="UWA/Controls/Accordion" src="../webapps/UWA2/js/Controls/Accordion.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="UWA/Controls/ToolTip" src="../webapps/UWA2/js/Controls/ToolTip.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="DS/Latency/Latency" src="../webapps/./Latency/Latency.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="DS/TopFrame/TopFrame_en" src="../webapps/./TopFrame/TopFrame_en.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="UWA/Controls/Segmented" src="../webapps/UWA2/js/Controls/Segmented.js"></script><link type="text/css" rel="stylesheet" href="../webapps/./Latency/Latency.css"><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="DS/W3DLegal/W3DLegal_en" src="../webapps/./W3DLegal/W3DLegal_en.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="DS/ENOFrameworkSearch/ENOFrameworkSearch_en" src="../webapps/./ENOFrameworkSearch/ENOFrameworkSearch_en.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="DS/SNResultUX/SNResultUX" src="../webapps/./SNResultUX/SNResultUX.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="DS/SNInfraUX/SNInfraUX" src="../webapps/./SNInfraUX/SNInfraUX.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="DS/VENHandlebars" src="../webapps/../webapps/./VENHandlebars/handlebars-v1.3.0.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="DS/Usage/Usage" src="../webapps/./Usage/Usage.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="DS/Latency/Latency_en" src="../webapps/./Latency/Latency_en.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="DS/PubSub/PubSub" src="../webapps/./PubSub/PubSub.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="DS/SWXWebPlatformApi/SWXWebPlatformApi" src="../webapps/./SWXWebPlatformApi/SWXWebPlatformApi.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="DS/UIKIT/UIKIT_en" src="../webapps/./UIKIT/UIKIT_en.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="DS/3DXHighcharts/3DXHighcharts" src="../webapps/./3DXHighcharts/3DXHighcharts.js"></script><link type="text/css" rel="stylesheet" href="../webapps/./SNResultUX/SNResultUX.css"><link type="text/css" rel="stylesheet" href="../webapps/./UIKIT/UIKIT.css"><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="DS/W3DXComponents/W3DXComponents" src="../webapps/./W3DXComponents/W3DXComponents.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="DS/WebAppsFoundations/WebAppsFoundations" src="../webapps/./WebAppsFoundations/WebAppsFoundations.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="DS/Tree/Tree" src="../webapps/./Tree/Tree.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="DS/SNResultUX/SNResultUX_en" src="../webapps/./SNResultUX/SNResultUX_en.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="DS/i3DXSNDictionaryAPI/i3DXSNDictionaryAPI" src="../webapps/./i3DXSNDictionaryAPI/i3DXSNDictionaryAPI.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="DS/Utilities/Utilities" src="../webapps/./Utilities/Utilities.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="DS/CefCommunication/CefCommunication" src="../webapps/./CefCommunication/CefCommunication.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="DS/i3DXCompassPlatformServices/i3DXCompassPlatformServices_en" src="../webapps/./i3DXCompassPlatformServices/i3DXCompassPlatformServices_en.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="DS/VEN3DXHighcharts" src="../webapps/../webapps/./VEN3DXHighcharts/4.0.3/highcharts-all.js"></script><link type="text/css" rel="stylesheet" href="../webapps/./W3DXComponents/W3DXComponents.css"><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="DS/Layouts/Layouts" src="../webapps/./Layouts/Layouts.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="DS/Controls/Controls" src="../webapps/./Controls/Controls.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="DS/Spreadsheet/Spreadsheet" src="../webapps/./Spreadsheet/Spreadsheet.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="DS/Core/Core" src="../webapps/./Core/Core.js"></script><link type="text/css" rel="stylesheet" href="../webapps/./Core/wux.css"><link type="text/css" rel="stylesheet" href="../webapps/./Core/wux-3ds-fonticons.css"><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="DS/TreeModel/TreeModel" src="../webapps/./TreeModel/TreeModel.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="DS/Tweakers/Tweakers" src="../webapps/./Tweakers/Tweakers.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="DS/Selection/Selection" src="../webapps/./Selection/Selection.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="DS/W3DXComponents/W3DXComponents_en" src="../webapps/./W3DXComponents/W3DXComponents_en.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="UWA/Controls/DatePicker" src="../webapps/UWA2/js/Controls/DatePicker.js"></script><link type="text/css" rel="stylesheet" href="../webapps/./Menu/assets/css/Menu.css"><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="DS/UIBehaviors/UIBehaviors" src="../webapps/./UIBehaviors/UIBehaviors.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="UWA/Controls/Calendar" src="../webapps/UWA2/js/Controls/Calendar.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="UWA/Controls/Picker" src="../webapps/UWA2/js/Controls/Picker.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="DS/SmartInputs/SmartInputs" src="../webapps/./SmartInputs/SmartInputs.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="DS/Menu/Menu" src="../webapps/./Menu/Menu.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="DS/WebRecordEnabler/WebRecordEnabler" src="../webapps/./WebRecordEnabler/WebRecordEnabler.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="DS/Maths/Maths" src="../webapps/./Maths/Maths.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="DS/CoreEvents/CoreEvents" src="../webapps/./CoreEvents/CoreEvents.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="DS/Controls/Controls_en" src="../webapps/./Controls/Controls_en.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="DS/WebRecordBase/WebRecordBase" src="../webapps/./WebRecordBase/WebRecordBase.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="DS/Windows/Windows" src="../webapps/./Windows/Windows.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="DS/Units/Units" src="../webapps/./Units/Units.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="DS/Decorator/Decorator" src="../webapps/./Decorator/Decorator.js"></script><link type="text/css" rel="stylesheet" href="../webapps/./SNSearchUX/SNSearchUX.css"><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="DS/InstantMessaging/InstantMessaging" src="../webapps/./InstantMessaging/InstantMessaging.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="DS/MessageBus/MessageBus" src="../webapps/./MessageBus/MessageBus.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="DS/Frame3DXInfra/Frame3DXInfra" src="../webapps/./Frame3DXInfra/Frame3DXInfra.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="DS/SNSearchUX/SNSearchUX_en" src="../webapps/./SNSearchUX/SNSearchUX_en.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="DS/RTProxyDriver/RTProxyDriver" src="../webapps/./RTProxyDriver/RTProxyDriver.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="DS/Windows/Windows_en" src="../webapps/./Windows/Windows_en.js"></script></head>
+
+
+<body class="navigator no-footer" onload="initializeSlideIns();expandMenuData()" onbeforeunload="if(isInPopup &amp;&amp; isInPopup == 'true') {return;} closeAllChildWindows()"><div id="topbar" class="topbar"><div class="topbar-logo"></div>
+<div id="compass_ctn" class="topbar-compass"><div class="compass-ct"><div class="compass-small" title=""><div class="compass-small-over"></div></div><div class="compass-base"><div class="compass-over"></div><div class="compass-on"></div></div></div></div>
+<div class="topbar-left">
+    <div class="topbar-app">
+        <span class="topbar-app-i3dx"><b>3D</b>EXPERIENCE |</span>
+        <span class="topbar-app-brand">ENOVIA</span>
+        <span class="topbar-app-title">
+            <span class="topbar-app-name" title="Project Management">Project Management</span>
+            <span class="topbar-app-opts">
+                 
+                <span class="topbar-app-menu"></span>
+            </span>
+        </span>
+    </div>
+</div>
+<div class="topbar-center topbar-without-extrabtn"><div id="global_ctn_search" class="global_ctn_search topbar-search"><div class="left_ctn_search ctn_search"></div>
+<div class="input_ctn_search ctn_search search_css_temp">
+    <div class="input_search_div" id="input_search_div">
+        <!-- autocomplete -->
+    <form class="uwa-autocomplete nv-autocomplete"><div class="uwa-autocomplete nv-autocomplete-searchbox"><input class="uwa-autocomplete nv-autocomplete-input" placeholder="Search" type="text"></div><div class="uwa-autocomplete nv-autocomplete-suggests"><ul></ul><ul class="search-choice"><li class="selected"><a>Search</a></li><li style="display: none;" class=""><a>Similar search</a></li><li class=""><a>My content</a></li><li class="" style="display: none;"><a>My recent content</a></li></ul><ul class="search-choice"><li style="" class=""><a>Advanced Search</a></li></ul><ul class="search-choice"></ul></div></form></div>
+    <div class="right_search">
+        <!-- do not insert spaces/indent between div -->
+        <div class="clear_ctn_search ctn_search">
+        	<div class="clear_btn_search fonticon fonticon-cancel-circled" style="display:none;" title=""></div>
+        </div>
+        <div class="run_ctn_search ctn_search">
+        	<div class="run_btn_search fonticon fonticon-search" title=""></div>
+        </div>
+        <div class="right_ctn_search ctn_search"></div>
+    </div>
+</div>
+</div>
+    <div class="topbar-cmd fonticon fonticon-menu menu" title=""></div>
+    <div class="topbar-cmd fonticon fonticon-search search" title=""></div>
+    <div id="btn_tag_nav" class="topbar-cmd fonticon fonticon-tag-alt tagnav" title=""></div>
+</div>
+<div class="topbar-right topbar-without-extrabtn">
+    <div class="topbar-cmd fonticon fonticon-menu menu"></div>
+    
+<div class="topbar-menu"><div class="topbar-user"><div class="topbar-username">Leader RC</div></div><div class="profile topbar-menu-item topbar-cmd fonticon fonticon-user-alt" title=""><span class="topbar-menu-item-badge" style="display: none;"></span><span class="topbar-floating-arrow"></span></div><div class="add topbar-menu-item topbar-cmd fonticon fonticon-plus" title=""><span class="topbar-menu-item-badge" style="display: none;"></span><span class="topbar-floating-arrow"></span></div><div class="share topbar-menu-item topbar-cmd fonticon fonticon-mail-forward-alt" title=""><span class="topbar-menu-item-badge" style="display: none;"></span><span class="topbar-floating-arrow"></span></div><div class="home topbar-menu-item topbar-cmd fonticon fonticon-home-alt"><span class="topbar-menu-item-badge" style="display: none;"></span><span class="topbar-floating-arrow"></span></div><div class="help topbar-menu-item topbar-cmd fonticon fonticon-question-circle" title=""><span class="topbar-menu-item-badge" style="display: none;"></span><span class="topbar-floating-arrow"></span></div></div></div>
+<div class="topbar-extrabtn topbar-extrabtn-hidden">
+    <div class="topbar-extrabtn-divider">|</div>
+    <div class="topbar-cmd extrabtn" title=""></div>
+</div>
+</div>
+
+			<script type="text/javascript" src="scripts/emxUITopBar.js"></script>	
+		
+  
+	<div id="navBar">
+	</div>
+	<div id="pageHeadDiv" style="display: none;">
+		<form name="navigatorForm">
+	        <div class="toolbar-container" id="globalToolbar">
+					<div id="divToolbar" class="toolbar-frame"><div class="toolbar group-left"><ul></ul></div><div class="toolbar group-center"><ul></ul></div><div class="toolbar group-right"><ul><li id="AEFWelcomeToolbar" style="display: none;"><span>Leader RC</span></li></ul></div></div>
+	    	</div>
+	    	
+			<div id="navBar">
+			</div>
+			<div id="appsPanel" style="width: 400px; top: 158px;"></div>
+		</form>
+ 	</div>
+
+
+
+<div id="ExtpageHeadDiv" class="page-head" style="height: 80px; display: block; top: 79px;"><div id="divExtendedHeaderContent" o="63096.16574.53152.55875" dr="Reference Document" dc="APPReferenceDocumentsTreeCategory" showstates="" idr="" mcs="https://ds3dx.dstw.com:4446/3dspace"><div class="headerImage" id="divExtendedHeaderImage"><span id="extendedHeaderImage"><form id="imageUpload" action="../common/emxExtendedPageHeaderFileUploadImage.jsp?objectId=63096.16574.53152.55875&amp;relationship=" method="post" enctype="multipart/form-data">   <div id="divDropImages" class="dropArea" ondrop="ImageDrop(event, &quot;imageUpload&quot;, &quot;divDropImages&quot;)" ondragover="ImageDragHover(event, &quot;divDropImages&quot;)" ondragleave="ImageDragHover(event, &quot;divDropImages&quot;)"><br>Drop<br>images<br>here   </div></form></span></div><div class="headerContent" id="divExtendedHeaderName"><span title="APQP-瓂笵ó进A" class="extendedHeader name">APQP-瓂笵ó进A</span><span class="extendedHeader">  <img class="typeIcon" src="../common/images/iconSmallProject.gif"><span class="extendedHeader type-name" title="Project Space (1011487226541826)">Project Space (1011487226541826)</span></span></div><div class="headerContent" id="divExtendedHeaderDescription"><span class="extendedHeader content">APQP-瓂笵ó进A</span></div><div class="headerContent" id="divExtendedHeaderDetails"><span id="extendedHeaderStatus" class="extendedHeader state">State : <a href="../common/emxExtendedPageHeaderAction.jsp?action=demote&amp;objectId=63096.16574.53152.55875" target="hiddenFrame" title="Demote"><button class="previous" type="button">Ready <img class="lc-button-arrow" src="../common/images/utilArrowLeft.png"></button></a><span style="color:#04A3CF;cursor:pointer;" onclick="var posLeft=(screen.width/2)-(475);var posTop = (screen.height/2)-(225); javascript:window.open('../common/emxLifecycle.jsp?toolbar=AEFLifecycleMenuToolBar&amp;header=emxFramework.Lifecycle.LifeCyclePageHeading&amp;export=false&amp;mode=basic&amp;objectId=63096.16574.53152.55875', '', 'height=450,width=950,top=' + posTop + ',left=' + posLeft + ',toolbar=no,directories=no,status=no,menubar=no;return false;')"><button class="status" type="button">In Work</button></span><a href="../common/emxExtendedPageHeaderAction.jsp?action=promote&amp;objectId=63096.16574.53152.55875" target="hiddenFrame" title="Promote"><button class="next" type="button"> <img class="lc-button-arrow" src="../common/images/utilArrowRight.png"> In Review</button></a></span><span class="extendedHeader">Owner : ProjectManager RC</span><span class="extendedHeader">Modified : <a onclick="javascript:showPageHeaderContent('../common/emxHistory.jsp?HistoryMode=CurrentRevision&amp;Header=emxFramework.Common.History&amp;objectId=63096.16574.53152.55875','',new Array('AEFHistory','APPDocumentHistory','APPRouteHistory'));">Feb 21, 2017 2:33:14 PM</a></span></div></div><div id="collab-space-id" class="header full">RC_Collaborative_Space</div><div id="divExtendedHeaderNavigation" style="margin-right: 0px; right: 1px; position: absolute;"><table><tbody><tr><td><div id="collab-space-id" class="header mini hide">RC_Collaborative_Space</div> </td><td class="notifications-unread-yes"><div id="iconMailNotification" class="field notifications button"><button id="buttonnotification" onclick="showIconMailDialog();" class="notifications" title="Count of unread message(s)"></button></div><div id="iconMailNotification" class="field notifications-unread button"><button id="buttonnotification" onclick="showIconMailDialog();" class="notifications-unread" title="Count of unread message(s)"><div class="notifications-counter">135</div></button></div></td><td><div id="appMenu" class="field my-desk button"><button id="buttonAppMenu" onclick="showAppMenu();" class="my-desk" title="ENOVIA Project Management Menu"></button></div></td><td><div class="field home button"><a title="ENOVIA Project Management Home" href="javascript:launchHomePage();"><button class="home"></button></a></div></td><td><div class="field previous button"><a title="Back" href="javascript:getTopWindow().bclist.goBack();"><button class="previous"></button></a></div></td><td><div class="field next button disabled"><a title="Forward" href="javascript:getTopWindow().bclist.goForward();"><button class="next"></button></a></div></td><td><div class="field refresh button"><a title="Refresh" onclick="javascript:refreshWholeTree(event,&quot;63096.16574.53152.55875&quot;,&quot;Reference\x20Document&quot;,&quot;APPReferenceDocumentsTreeCategory&quot;,&quot;&quot;,&quot;https://ds3dx.dstw.com:4446/3dspace&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;);"><button class="refresh"></button></a></div></td><td><div class="field resize-Xheader button"><a id="resize-Xheader-Link" title="Collapse / Expand" onclick="toggleExtendedPageHeader();"><button class="resize-Xheader"></button></a></div></td></tr></tbody></table></div></div>
+<div id="panelToggle" class="panel-toggle open footer-notice-yes" style="top: 158px;" title="Hide"></div>
+<div id="leftPanelMenu" class="slide-in-panel menu categories footer-notice-yes" style="display: block; width: 195px; left: 16px; top: 158px;">
+	<div id="togglecat" class="toggle" style="display:none;">
+		<a href="javascript:showCategoryTree()"><button id="catButton" class="toggle-inactive"><img src="images/iconActionSmallReturnToFacets.png"></button></a> 
+		<a href="javascript:showStructureTree()"><button id="strucButton" class="toggle-active"><img src="images/iconActionSmallReturnToTree.png"></button></a>
+	</div>
+	<div id="catMenu" class="menu categories" style="top: 0px; display: block;"><ul><li class="menu text-only active" name="li_type_ProjectSpace"><label>APQP-瓂笵ó进A</label><span class="close"></span></li><li class="menu text-only" name="li_PMCSchedule"><label>Schedule</label><span class="close"></span></li><li class="menu text-only" name="li_PMCProjectCollaborationPowerView"><label>Collaboration</label><span class="close"></span></li><li class="menu text-only" name="li_PMCProjectSpacePropertiesPowerView"><label>Details</label><span class="close"></span></li><li class="menu text-only" name="li_PMCExecution"><label>Execution</label><span class="close"></span></li><li class="menu text-only" name="li_PMCWhatIfProjectExperiments"><label>Experiments</label><span class="close"></span></li><li class="menu text-only" name="li_PMCFinancials"><label>Financials</label><span class="close"></span></li><li class="menu text-only" name="li_PMCFolder"><label>Folders</label><span class="close"></span></li><li class="menu text-only" name="li_PMCObjectives"><label>Objectives</label><span class="close"></span></li><li class="menu text-only" name="li_PMCAccess_ResourcePlan"><label>People</label><span class="close"></span></li></ul></div>
+	<div id="leftPanelTree" style="display: none; top: 0px;"></div>
+ </div>
+	<div id="mx_divGrabber" style="bottom: 0px; z-index: 1; top: 159px; display: block; left: 213px;">
+		<div id="mx_divGrabberHead"></div>
+		<div id="mx_divGrabberBody" style="top: 126px;"></div>
+ 	
+ </div>
+
+
+ 
+
+ 
+ <script type="text/javascript" src="./scripts/emxBreadcrumbs.js"></script>
+ <script type="text/javascript" src="./scripts/emxQuery.js"></script>
+ <script type="text/javascript" src="../plugins/libs/jquerystorage/jquery.storageapi.js"></script>
+ 
+ <script type="text/javascript">
+ this.personContextId = "63096.16574.20085.1167";
+	
+     </script>
+
+ 
+<div id="pageContentDiv" style="left: 213px; top: 158px;" class="footer-notice-yes">
+    <iframe id="content" name="content" src="emxNavigatorContentLoad.jsp?appName=ENOPRPR_AP&amp;collabSpace=RC_Collaborative_Space" width="100%" frameborder="0" height="100%"></iframe>
+    <iframe class="hidden-frame applet-support" id="hiddenFrame" name="hiddenFrame"></iframe>
+
+	
+    	<iframe class="hidden-frame applet-support" id="integrationsFrame" name="integrationsFrame" src="../integrations/emxIntegrations.jsp"></iframe>
+    
+    <iframe class="hidden-frame applet-support" id="appletFrame" name="appletFrame"></iframe>
+    
+</div>
+<!-- 
+<div id="pageStatusBar">
+       <div class="breadcrumbs" id="breadcrumbs">
+       	 	
+		    <div id="breadcrumbs_leftbutton" class="buttons previous disabled">
+		        <a href="javascript:;" class="btn left"></a>
+		    </div>
+		    <div id="bccontainer" class="breadcrumbs-container">
+		    <ul id="bcul">
+		    </ul>
+		    </div>
+		    <div id="breadcrumbs_rightbutton" class="buttons next disabled">
+		        <a href="javascript:;" class="btn right"></a> 
+		    </div>
+       		
+       </div>
+       <div id="mx_objectCount" class="object-count"></div>
+</div>
+ -->
+<!-- overlay layer -->
+<div id="layerOverlay" class="content-mask" style="display:none;"></div><!-- /layerOverlay -->
+<div id="layerOverlayRight" class="toolbar-mask group-right" style="display:none;"></div><!-- /layerOverlay -->
+<div id="layerOverlayLeft" class="toolbar-mask group-left" style="display:none;"></div><!-- /layerOverlay -->
+
+<!-- genericwindowshade -->
+      <div id="genericwindowshade" class="windowshade">
+            <div class="windowshade-body">
+                  <iframe allowtransparency="true" name="genericWindowShadeFrame" id="genericWindowHhadeFrame" src="about:blank" frameborder="0"></iframe>
+            </div>
+            <div class="windowshade-foot">
+                  <table>
+                        <tbody><tr>
+                              <td class="functions">
+                                    <table>
+                                          <tbody><tr>
+                                                <td></td>
+                                                <td></td>
+                                          </tr>
+                                    </tbody></table>
+                              </td>
+                              <td class="buttons">
+                                    <table>
+                                          <tbody>
+                                                <tr>
+                                                      <td><a onclick="getTopWindow().closeWindowShadeDialog(true)" href="#"><img src="images/buttonDialogCancel.gif" border="0" align="absmiddle"></a></td>
+                                                </tr>
+                                          </tbody>
+                                    </table>
+                              </td>
+                        </tr>
+                  </tbody></table>
+            </div><!-- /.genericwindowshade-foot -->
+      </div><!-- /.genericwindowshade -->
+
+<!-- windowshade -->
+      <div id="windowshade" class="windowshade search">
+            <div class="windowshade-body">
+                  <iframe allowtransparency="true" name="windowShadeFrame" id="windowShadeFrame" src="about:blank" frameborder="0"></iframe>
+            </div>
+            <div class="windowshade-foot">
+                  <table>
+                        <tbody><tr>
+                              <td class="functions">
+                                    <table>
+                                          <tbody><tr>
+                                                <td></td>
+                                                <td></td>
+                                          </tr>
+                                    </tbody></table>
+                              </td>
+                              <td class="buttons">
+                                    <table>
+                                          <tbody>
+                                                <tr>
+                                                      <td><a onclick="getTopWindow().closeWindowShadeDialog()" href="#"><img src="images/buttonDialogCancel.gif" border="0" align="absmiddle"></a></td>
+                                                </tr>
+                                          </tbody>
+                                    </table>
+                              </td>
+                        </tr>
+                  </tbody></table>
+            </div><!-- /.windowshade-foot -->
+      </div><!-- /.windowshade -->
+
+<script>
+var bclist = bclist ? bclist : new emxBreadCrumbList();
+var bculmousedown = false;
+ 
+jQuery(".btn.left").mousedown( function (){
+	if(jQuery("#breadcrumbs_leftbutton").hasClass("disabled"))
+		return;
+    bculmousedown = true;
+    animate("left");
+});
+
+jQuery(".btn.left").mouseup( function (){
+	if(jQuery("#breadcrumbs_leftbutton").hasClass("disabled"))
+		return;
+    bculmousedown = false;
+    jQuery("#bcul").stop();
+    paintButtons();
+});
+
+jQuery(".btn.left").mouseout( function (){
+	if(jQuery("#breadcrumbs_leftbutton").hasClass("disabled"))
+		return;
+    bculmousedown = false;
+    jQuery("#bcul").stop();
+    paintButtons();
+});
+
+jQuery(".btn.right").mousedown( function (){
+	if(jQuery("#breadcrumbs_rightbutton").hasClass("disabled"))
+		return;
+    bculmousedown = true;
+    animate("right");
+});
+
+jQuery(".btn.right").mouseup( function (){
+	if(jQuery("#breadcrumbs_rightbutton").hasClass("disabled"))
+		return;
+    bculmousedown = false;
+    jQuery("#bcul").stop();
+    paintButtons();
+});
+
+jQuery(".btn.right").mouseout( function (){
+	if(jQuery("#breadcrumbs_rightbutton").hasClass("disabled"))
+		return;
+    bculmousedown = false;
+    jQuery("#bcul").stop();
+    paintButtons();
+});
+
+function paintButtons(){
+    var bcul = jQuery("#bcul");
+    var bc = getTopWindow().bclist.getFirstBC();
+    if(bc != null) {
+       	if(bcul[0].offsetLeft < 0){ 	  
+              jQuery("#breadcrumbs_leftbutton").removeClass("disabled");
+        } else {
+              jQuery("#breadcrumbs_leftbutton").addClass("disabled");
+         }
+    } else {
+        jQuery("#breadcrumbs_leftbutton").addClass("disabled");
+    }
+    if((bcul[0].offsetLeft + bcul[0].offsetWidth) < jQuery('#mx_objectCount')[0].offsetLeft){
+         if(jQuery('#mx_objectCount')[0].offsetLeft - (bcul[0].offsetLeft + bcul[0].offsetWidth) <= 40){
+        	 	jQuery("#breadcrumbs_rightbutton").removeClass("disabled");
+         }else{
+       			jQuery("#breadcrumbs_rightbutton").addClass("disabled");
+         }
+    } else {
+        jQuery("#breadcrumbs_rightbutton").removeClass("disabled");
+    }
+}
+
+function animate(direction){
+    var bcul = jQuery("#bcul");
+    var bcj = jQuery("#liemxbc" + 0);
+    if(direction == "left") {
+        var bc = getTopWindow().bclist.getFirstBC();
+        if(bc != null) {        	
+            if(bcul[0].offsetLeft < 0 ){
+            	moveUL = (bcul[0].offsetLeft + 40) + "px";
+            	if(bcul[0].offsetLeft + 40 >0){
+            		moveUL = 0 + "px";
+            	}
+            	bcul.animate({left: moveUL}, (40 - bcul[0].offsetLeft)*1, function() {
+                    if(bculmousedown)
+                        animate("left");
+                });
+            }
+        }
+    } else {
+    		if(((bcul[0].offsetLeft + bcul[0].offsetWidth) > jQuery('#mx_objectCount')[0].offsetLeft)){
+    		moveUL = (bcul[0].offsetLeft - 40) + "px";
+    		bcul.animate({left: moveUL}, -(bcul.position().left +  bcj.position().left), function() {
+    	    if(bculmousedown)
+                    animate("right");
+            });    	
+    	}else if ((jQuery('#mx_objectCount')[0].offsetLeft - (bcul[0].offsetLeft + bcul[0].offsetWidth) )  < 40) {
+    		moveUL = bcul[0].offsetLeft+ (bcul[0].offsetLeft + bcul[0].offsetWidth +5) -jQuery('#mx_objectCount')[0].offsetLeft + "px";
+    		bcul.animate({left: moveUL}, (bcul.position().left +  bcj.position().left), function() {
+                if(bculmousedown)
+                    animate("right");
+            });
+    	}
+    }
+}
+
+</script>
+
+ <!--
+ This div and Form are added to remove the checkout empty dilaog
+ Do not remove this as AEF is not using this form or div.
+ -->
+ <div id="checkoutdiv">
+  <form name="commonDocumentCheckout" id="commonDocumentCheckout" method="post" action="../components/emxCommonDocumentPreCheckout.jsp">
+      <input name="objectId" type="hidden">
+      <input name="action" type="hidden">
+      <input name="format" type="hidden">
+      <input name="fileName" type="hidden">
+      <input name="appName" type="hidden">
+      <input name="appDir" type="hidden">
+      <input name="closeWindow" type="hidden">
+      <input name="refresh" type="hidden">
+      <input name="trackUsagePartId" type="hidden">
+      <input name="version" type="hidden">
+      <input name="customSortColumns" type="hidden">
+      <input name="customSortDirections" type="hidden">
+      <input name="uiType" type="hidden">
+      <input name="table" type="hidden">
+      <input name="getCheckoutMapFromSession" type="hidden">
+      <input name="fromDataSessionKey" type="hidden">
+      <input name="parentOID" type="hidden">
+      <input name="appProcessPage" type="hidden">
+      <input name="portalMode" type="hidden">      
+      <input name="frameName" type="hidden">
+      <input name="id" type="hidden">
+      <input name="fileAction" type="hidden">
+      <input name="file" type="hidden">
+      <input name="versionId" type="hidden">
+  </form>
+</div>
+<div id="switchContextDialog">
+</div>
+    <div id="tn-target" style="display: none"></div>
+    <script type="text/javascript">
+    emxUINavigator.myAppsURL = myAppsURL;
+    emxUINavigator.tabCtx ='null';
+    emxUINavigator.fromIFWE = 'null';
+    if (emxUINavigator.fromIFWE === 'true') {
+      showSlideInDialog.mode = "tag navigator";
+    }
+//UWA.InterCom
+function initInterCom() {
+  if (setUWAPref.widgetEventSocket == null) {
+      var InterCom = UWA.Utils.InterCom; // Make an alias to API, it's not required, but help for compression and shortcut.
+      setUWAPref.evtSocketName = 'bps_';// + Math.random();
+      setUWAPref.widgetEventSocket = new InterCom.Socket(setUWAPref.evtSocketName); // Init "widgetNameEventSocket" into an iframe or main page
+      setUWAPref.widgetEventSocket.subscribeServer('bps.intercom.server',parent,targetOrigin);
+  }
+};
+function setUWAPref(name, val) {
+  initInterCom();
+  setUWAPref.widgetEventSocket.dispatchEvent('onAddPref', {name:'e6w-preference_'+name,value:val});
+};
+function setUWATitle(title) {
+  initInterCom();
+  setUWAPref.widgetEventSocket.dispatchEvent('onSetTitle', {title:title});
+};
+
+/**
+ *method registerIdtoCompass
+ *param {String} Id contains physicalId of the object
+ *param {String} curSecCtx Security Context
+**/
+
+function registerIdtoCompass(Id,curSecCtx) {
+  initInterCom();
+  setUWAPref.widgetEventSocket.dispatchEvent('onRegisteredId', {physicalID:Id,currentSecurityCtx:curSecCtx});
+};
+
+function unregisterIdtoCompass() {
+  initInterCom();
+  setUWAPref.widgetEventSocket.dispatchEvent('onUnregisterId');
+};
+
+
+	require(['DS/TagNavigator/TagNavigator'], function(TagNavigator) {
+		topFrameTagger = TagNavigator;
+	});
+  
+     emxUINavigator.loadCoachmark(false);
+
+
+
+if(passportURL && passportURL!="" && !isfromIFWE ){
+	var paramTenant = getTopWindow().location.search.match(/[?&]tenant=([^&]*)?/);
+	paramTenant = (paramTenant == null ? undefined : paramTenant[1] || undefined);
+	var tenantId =  paramTenant == "onpremise" ? undefined : paramTenant;
+	
+	require([
+	         // Legal Module
+	         'DS/W3DLegal/W3DLegal'
+	
+	         ], function (Legal) {
+	                'use strict';
+	
+	                        // Called when About 3DEXPERIENCE Platform is clicked
+	                        function aboutHandler () {
+	                        	showAndGetNonModalDialog("../common/emx3DExperiencePlatformAbout.jsp?suiteKey=Framework&StringResourceFileId=emxFrameworkStringResource&SuiteDirectory=common","530","325",true);
+	                        }
+	
+	                        // This function onAccept is called even if there are no terms to accept
+	                        function onAccept () {
+	                                console.log('Terms accepted !');
+	                        }
+	                        UWA.Data.proxies.passport = crossproxy;
+	                        Legal.init({
+	                                myAppsBaseUrl: myAppsURL,
+	                                footerContainer: document.body,
+	                                onAccept: onAccept,
+	                                onAboutClick: aboutHandler,
+	                                tenantId: tenantId
+	                        });
+                              if(jQuery('.w3dfooter')){
+	                        	jQuery("div#panelToggle").addClass("footer-notice-yes");
+	                        	jQuery("div#mydeskpanel").addClass("footer-notice-yes");
+	                        	jQuery("div#pageContentDiv").addClass("footer-notice-yes");
+								jQuery("div#leftPanelMenu").addClass("footer-notice-yes");
+	                        }
+	 });
+}
+
+if(licenseWarning && licenseWarning.length > 0){
+	showTransientMessage(licenseWarning, "warning");
+}
+require(["UWA/Utils/InterCom"], function(InterCom){
+	"use strict";
+	var busServer = new InterCom.Server('enovia.bus.server', {
+	    isPublic: true 
+	});
+	var extendedHeadersocket = new InterCom.Socket(); 
+	extendedHeadersocket.subscribeServer('enovia.bus.server', getTopWindow());   
+	extendedHeadersocket.addListener('objectChanged', function (data) {
+		var oid = data.oid;
+		var el = jQuery("#divExtendedHeaderContent");
+		var headerOID = el.attr("o");
+		if(!oid || oid != headerOID){
+			return;
+		}
+		refreshWholeTree("", oid, el.attr("dr"), el.attr("dc"), el.attr("showStates"), el.attr("mcs"), el.attr("idr"), true);
+	});	
+});
+</script>
+
+
+
+
+
+<div id="mydeskpanel" class="slide-in-panel menu categories my-desk footer-notice-yes" style="visibility: visible; left: 16px; top: 79px; display: none;"><div class="menu-content" aria-haspopup="true"><div class="group expanded" style="display:none" id="FTRMyDesk"><div class="group-head" id="FTRMyDesk"><a href="javascript:void(0)"><label>Variant Management</label></a></div><div class="group-body"><ul><li><a href="javascript:void(0)"><label>Product Configurations</label></a></li><li><a href="javascript:void(0)"><label>Configuration Features</label></a></li><li><a href="javascript:void(0)"><label>Logical Features</label></a></li><li><a href="javascript:void(0)"><label>Manufacturing Features</label></a></li></ul></div></div><div class="group expanded" style="display: block;" id="PLCMyDesk"><div class="group-head" id="PLCMyDesk"><a href="javascript:void(0)"><label>Product Line</label></a></div><div class="group-body"><ul><li><a href="javascript:void(0)"><label>Portfolios</label></a></li><li><a href="javascript:void(0)"><label>Product Lines</label></a></li><li><a href="javascript:void(0)"><label>Products</label></a></li><li><a href="javascript:void(0)"><label>Builds</label></a></li></ul></div></div><div class="group expanded" style="display:none" id="ECMMyDesk"><div class="group-head" id="ECMMyDesk"><a href="javascript:void(0)"><label>Change Management</label></a></div><div class="group-body"><ul><li><a href="javascript:void(0)"><label>My Changes</label></a></li></ul></div></div><div class="group expanded" style="display:none" id="My Enovia"><div class="group-head" id="My Enovia"><a href="javascript:void(0)"><label>Collaboration and Approvals</label></a></div><div class="group-body"><ul><li><a href="javascript:void(0)"><label>Home</label></a></li><li><a href="javascript:void(0)"><label>Issue Categories</label></a></li><li><a href="javascript:void(0)"><label>Issues Summary</label></a></li><li><a href="javascript:void(0)"><label>Shortcuts...</label></a></li><li><a href="javascript:void(0)"><label>Collections</label></a></li><li class="menu expanded"><a href="javascript:void(0)" id="AdminTools" class="selected"><label>Utilities</label></a><ul><li><a href="javascript:void(0)"><label>System Data</label></a></li><li><a href="javascript:void(0)"><label>Database Analysis</label></a></li><li><a href="javascript:void(0)"><label>Monitor</label></a></li><li><a href="javascript:void(0)"><label>Run MQL</label></a></li><li><a href="javascript:void(0)"><label>Trigger Report...</label></a></li><li class="menu collapsed"><a href="javascript:void(0)" id="AEFAdminPropertyMenu"><label>Property Registration</label></a><ul><li><a href="javascript:void(0)"><label>Admin Type...</label></a></li><li><a href="javascript:void(0)"><label>State...</label></a></li><li><a href="javascript:void(0)"><label>Viewer...</label></a></li></ul></li><li><a href="javascript:void(0)"><label>Background Jobs...</label></a></li><li><a href="javascript:void(0)"><label>Reload Cache</label></a></li><li><a href="javascript:void(0)"><label>About...</label></a></li><li class="menu collapsed"><a href="javascript:void(0)" id="DownloadMOFMenu"><label>Download Collaboration for Microsoft Client</label></a><ul><li><a href="javascript:void(0)"><label>R2017x...</label></a></li><li><a href="javascript:void(0)"><label>Hotfix...</label></a></li></ul></li></ul></li><li class="menu collapsed"><a href="javascript:void(0)" id="APPMyRoutes"><label>Routes</label></a><ul><li><a href="javascript:void(0)"><label>Routes Summary</label></a></li><li><a href="javascript:void(0)"><label>Route Templates</label></a></li></ul></li><li><a href="javascript:void(0)"><label>Tasks</label></a></li><li><a href="javascript:void(0)"><label>Subscriptions</label></a></li><li><a href="javascript:void(0)"><label>Meetings</label></a></li><li><a href="javascript:void(0)"><label>Decisions</label></a></li><li><a href="javascript:void(0)"><label>My Calendar</label></a></li><li><a href="javascript:void(0)"><label>Discussions</label></a></li><li class="menu collapsed"><a href="javascript:void(0)" id="MetricsGlobalToolbar"><label>Metrics</label></a><ul><li class="menu collapsed"><a href="javascript:void(0)" id="MetricsCommonReportsMenu"><label>Common Reports</label></a><ul><li><a href="javascript:void(0)"><label>Lifecycle Duration Report Over Time...</label></a></li><li><a href="javascript:void(0)"><label>Object Count Report...</label></a></li><li><a href="javascript:void(0)"><label>Object Count In State Over Time Report...</label></a></li><li><a href="javascript:void(0)"><label>Object Count Over Time Report...</label></a></li></ul></li><li><a href="javascript:void(0)"><label>Metrics Dashboard</label></a></li></ul></li><li><a href="javascript:void(0)"><label>Member Lists</label></a></li><li><a href="javascript:void(0)"><label>View My Company</label></a></li><li class="menu collapsed"><a href="javascript:void(0)" id="ENOConfiguration"><label>Experience Configuration</label></a><ul><li><a href="javascript:void(0)"><label>Manage P&amp;O and Content</label></a></li><li class="menu collapsed"><a href="javascript:void(0)" id="APPAdministration"><label>Advanced Profile Configuration</label></a><ul><li><a href="javascript:void(0)"><label>Search for People...</label></a></li><li><a href="javascript:void(0)"><label>Companies</label></a></li><li><a href="javascript:void(0)"><label>Inactive Companies</label></a></li><li><a href="javascript:void(0)"><label>Inactive People</label></a></li><li><a href="javascript:void(0)"><label>Collaboration Requests</label></a></li><li><a href="javascript:void(0)"><label>Potential Suppliers</label></a></li><li><a href="javascript:void(0)"><label>Assign Licensing by Product...</label></a></li><li><a href="javascript:void(0)"><label>Check Collaboration Mappings with IP Work In Progress...</label></a></li><li><a href="javascript:void(0)"><label>Update Collaboration Mappings with IP Work In Progress</label></a></li></ul></li><li><a href="javascript:void(0)"><label>Manage Login Tickets</label></a></li></ul></li><li class="menu collapsed"><a href="javascript:void(0)" id="FMAManagement"><label>FMA Management</label></a><ul><li><a href="javascript:void(0)"><label>FMEA Worksheets</label></a></li><li><a href="javascript:void(0)"><label>DVPR Worksheets</label></a></li><li><a href="javascript:void(0)"><label>Control Plan Worksheets</label></a></li><li><a href="javascript:void(0)"><label>All Process Flows</label></a></li><li><a href="javascript:void(0)"><label>FMEA Summary Report</label></a></li><li><a href="javascript:void(0)"><label>APQP Dashboard</label></a></li></ul></li><li><a href="javascript:void(0)"><label>OTA_RFQ_List</label></a></li></ul></div></div><div class="group expanded" style="display:none" id="TMCMyDesk"><div class="group-head" id="TMCMyDesk"><a href="javascript:void(0)"><label>Team</label></a></div><div class="group-body"><ul><li><a href="javascript:void(0)"><label>My View</label></a></li><li><a href="javascript:void(0)"><label>Workspaces</label></a></li><li><a href="javascript:void(0)"><label>Workspace Templates</label></a></li></ul></div></div><div class="group expanded" style="display:none" id="PARMyDesk"><div class="group-head" id="PARMyDesk"><a href="javascript:void(0)"><label>Parameters</label></a></div><div class="group-body"><ul><li><a href="javascript:void(0)"><label>Parameters</label></a></li></ul></div></div><div class="group expanded" style="display:none" id="APPPnOSpace"><div class="group-head" id="APPPnOSpace"><a href="javascript:void(0)"><label>My Profile</label></a></div><div class="group-body"><ul><li><a href="javascript:void(0)"><label>My Profile</label></a></li></ul></div></div><div class="group expanded" style="display:none" id="CollabSpaceAppMenu"><div class="group-head" id="CollabSpaceAppMenu"><a href="javascript:void(0)"><label>3DSpace</label></a></div><div class="group-body"><ul><li><a href="javascript:void(0)"><label>Manage</label></a></li></ul></div></div><div class="group expanded" style="display:none" id="ENCMyDesk"><div class="group-head" id="ENCMyDesk"><a href="javascript:void(0)"><label>Engineering</label></a></div><div class="group-body"><ul><li><a href="javascript:void(0)"><label>Part Families</label></a></li><li><a href="javascript:void(0)"><label>Manufacturer Equivalent Parts</label></a></li><li><a href="javascript:void(0)"><label>My Engineering View</label></a></li><li><a href="javascript:void(0)"><label>BOM Compare Report</label></a></li></ul></div></div><div class="group expanded" style="display:none" id="CPCMyDesk"><div class="group-head" id="CPCMyDesk"><a href="javascript:void(0)"><label>Components</label></a></div><div class="group-body"><ul><li><a href="javascript:void(0)"><label>Supplier Equivalent Parts</label></a></li><li><a href="javascript:void(0)"><label>Manufacturer Equivalent Parts</label></a></li><li><a href="javascript:void(0)"><label>Parts</label></a></li></ul></div></div><div class="group expanded" style="display: block;" id="PMCMyDesk"><div class="group-head" id="PMCMyDesk"><a href="javascript:void(0)"><label>Program</label></a></div><div class="group-body"><ul><li><a href="javascript:void(0)"><label>Dashboard Collection</label></a></li><li><a href="javascript:void(0)"><label>Tasks</label></a></li><li><a href="javascript:void(0)"><label>Programs</label></a></li><li><a href="javascript:void(0)"><label>Projects</label></a></li><li><a href="javascript:void(0)"><label>Risks</label></a></li><li><a href="javascript:void(0)"><label>Business Goals</label></a></li><li><a href="javascript:void(0)"><label>Project Templates</label></a></li><li><a href="javascript:void(0)"><label>Resource Pools</label></a></li><li><a href="javascript:void(0)"><label>Weekly TimeSheet</label></a></li><li><a href="javascript:void(0)"><label>Projects Summary Report</label></a></li></ul></div></div><div class="group expanded" style="display:none" id="LBCMyDesk"><div class="group-head" id="LBCMyDesk"><a href="javascript:void(0)"><label>Library</label></a></div><div class="group-body"><ul><li><a href="javascript:void(0)"><label>Libraries</label></a></li><li><a href="javascript:void(0)"><label>Classes</label></a></li><li><a href="javascript:void(0)"><label>Folders</label></a></li><li><a href="javascript:void(0)"><label>My Documents</label></a></li><li><a href="javascript:void(0)"><label>My Downloads...</label></a></li><li><a href="javascript:void(0)"><label>Access Requests</label></a></li><li><a href="javascript:void(0)"><label>Record Retention Schedule</label></a></li></ul></div></div><div class="group expanded" style="display:none" id="RMTMyDesk"><div class="group-head" id="RMTMyDesk"><a href="javascript:void(0)"><label>Requirements</label></a></div><div class="group-body"><ul><li><a href="javascript:void(0)"><label>Requirements</label></a></li><li><a href="javascript:void(0)"><label>Requirement Specifications</label></a></li><li><a href="javascript:void(0)"><label>Download MS Office Requirements Capture Installer</label></a></li></ul></div></div><div class="group expanded" style="display:none" id="MFGMyDesk"><div class="group-head" id="MFGMyDesk"><a href="javascript:void(0)"><label>Manufacturing</label></a></div><div class="group-body"><ul><li><a href="javascript:void(0)"><label>My Manufacturing View</label></a></li></ul></div></div></div></div><div id="leftSlideIn" class="slide-in-panel dialog" style="display: none; width: 400px; top: 158px;"></div><div class="alert-legal"></div><footer class="w3dfooter"><ul class="w3dfooter-list"><li class="w3dfooter-list-itm clickable" name="about"><span class="list-itm-wrap">About 3DEXPERIENCE Platform </span></li></ul></footer><div class="column left"><div class="column-ctn"><div id="my-apps-ct" class="column-container"><div class="my-apps-panel" style="display: none;"><div class="compass-loading"><div class="spinner compass-spinner spinning fade in" style="transform: translate3d(0px, 0px, 0px); display: inline-block;"><span class="spinner-bar"></span><span class="spinner-bar spinner-bar1"></span><span class="spinner-bar spinner-bar2"></span><span class="spinner-bar spinner-bar3"></span></div></div><button class="close compass-close fonticon fonticon-cancel" type="button" aria-hidden="true"></button></div></div><div id="tagger-ct" class="column-container"><div id="tagnavigator" class="no-w" data-rec-id="tagnavigator"><span class="tagger-close fonticon fonticon-cancel" title="Close" data-rec-id="tagger-close"></span><div id="active-tags" class="active-tags section expanded-section" data-rec-id="active-tags" style="display: none;"></div><div id="header-container" class="allw"><div id="edit-tags" data-rec-id="edit-tags"><div class="edit-section"><div class="section-header"><div class="header-title" id="createTag">Add Tag</div></div></div></div><div class="tagnavheader"><div class="tn-header-title">6WTags<span class="fonticon fonticon-down-open"></span></div><div class="search-header-title">Advanced Search</div><div class="show-all"></div><div class="ds6w-button sort-6w" title="Sort Predicates"><span class="fonticon fonticon-sort-tag selected" id="sort-6w-menu"></span></div><div class="ds6w-button tagger-filter" title="Search Tag"><span class="fonticon fonticon-search"></span></div></div></div><div class="uwa-tabview"><ul class="uwa-tablist"><li class="uwa-tab tags selected"><a href="#tags-tab"><span class="title">6WTags</span></a></li><li class="uwa-tab criteria"><a href="#criteria-tab"><span class="title">Advanced Search</span></a></li></ul><div class="uwa-tabview-panel"><div id="tags-tab" class="uwa-tab-panel tags selected"><div id="filter-all" class="add-tag-cont search-cont" style="overflow: hidden; height: 0px;"><span class="add-tag-close"><span class="fonticon fonticon-cancel-circled"></span></span><input id="taginput" class="tagger-input searchbox" title="Search Tag" placeholder="Search Tag"></div><div id="all-tags-container" data-rec-id="all-tags-container" tabindex="0" class="scroller scroller-root" style="overflow: hidden;"><div class="no-native-scrollbars  scroller-content" style="right: -16px; bottom: -16px; padding-right: 16px; padding-bottom: 16px;"><div id="all-tags"></div></div></div></div><div id="criteria-tab" class="uwa-tab-panel hidden criteria"><div id="all-criteria-container" class="scroller scroller-root" style="overflow: hidden;"><div class="no-native-scrollbars  scroller-content" style="right: -16px; bottom: -16px; padding-right: 16px; padding-bottom: 16px;"><div id="all-criteria"></div></div></div></div></div></div></div></div><div id="data-filter-panel-ct" class="column-container"></div></div></div><div class="main"><div class="app-content" style="height: 725px; display: none;"></div><div class="search-content" id="search-content"></div></div><div class="column right"><div class="column-ctn"><span class="column-actions"><span class="column-action fit fonticon fonticon-resize-full" title=""></span><span class="column-action minimize fonticon fonticon-resize-small" title=""></span><span class="column-action close fonticon fonticon-cancel" title=""></span></span></div></div></body></html>
